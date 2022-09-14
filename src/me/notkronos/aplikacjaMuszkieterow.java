@@ -6,7 +6,7 @@ import java.util.Objects;
 
 import javax.swing.*;
 
-public class aplikacjaMuszkieterow extends JFrame implements ActionListener {
+public class Rownania extends JFrame implements ActionListener {
 
     private static final long serialVersionUID = 1L;
     static int wynik; // procenty
@@ -15,7 +15,7 @@ public class aplikacjaMuszkieterow extends JFrame implements ActionListener {
 
     JLabel textLabel, t1Label, t2Label, t3, t4, t1Label1, t1Label2;
 
-    public aplikacjaMuszkieterow() {
+    public Rownania() {
         super();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(520, 550);
@@ -108,6 +108,6 @@ public class aplikacjaMuszkieterow extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        new aplikacjaMuszkieterow();
+        new Rownania();
     }
 }
