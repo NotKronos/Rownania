@@ -2,49 +2,53 @@ package me.notkronos;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.Serial;
 import java.util.Objects;
+
 
 import javax.swing.*;
 
 public class Rownania extends JFrame implements ActionListener {
 
+    @Serial
     private static final long serialVersionUID = 1L;
+
     static int wynik; // procenty
     JButton button;
     JTextField firstQuestion, secondQuestion, thirdQuestion, fourthQuestion;
 
-    JLabel textLabel, t1Label, t2Label, t3, t4, t1Label1, t1Label2;
+    JLabel fQuestionContent, task, sQuestionContent, tQuestionContent, foQuestionContent, noneOfTheNumbers, t1Label2;
 
     public Rownania() {
         super();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(520, 550);
-        setTitle("ROZWIAZYWANIE ROWNAN czesc I :)");
+        setTitle("ROZWIAZYWANIE ROWNAN czesc I");
         setLayout(null);
 
-        t1Label = new JLabel("Ktora z liczb : -3; 0; 2; 0,4; 1 jest rozwiazaniem rownania? :)");
-        t1Label.setBounds(30, -10, 390, 80);
-        this.add(t1Label);
+        task = new JLabel("Ktora z liczb : -3; 0; 2; 0,4; 1 jest rozwiazaniem rownania?");
+        task.setBounds(30, -10, 390, 80);
+        this.add(task);
 
-        t1Label1 = new JLabel("W wyniku mozesz uzyskac taka liczbe, ktora nie jest podana w zbiorze powyzej.* ");
-        t1Label1.setBounds(30, 5, 460, 80);
-        this.add(t1Label1);
+        noneOfTheNumbers = new JLabel("Jesli liczba nie nazlezy do zbioru nalezy wpisac \"Zadna z liczb\"");
+        noneOfTheNumbers.setBounds(30, 5, 460, 80);
+        this.add(noneOfTheNumbers);
 
-        textLabel = new JLabel("1. a:  --> 3a - 3(2a - 2) = 3(a - 2)");
-        textLabel.setBounds(30, 30, 390, 80);
-        this.add(textLabel);
+        fQuestionContent = new JLabel("1. a:  --> 3a - 3(2a - 2) = 3(a - 2)");
+        fQuestionContent.setBounds(30, 30, 390, 80);
+        this.add(fQuestionContent);
 
-        t2Label = new JLabel("1. b: --> 2b - (8 - b) = -2(b - 5)");
-        t2Label.setBounds(30, 30, 390, 240);
-        this.add(t2Label);
+        sQuestionContent = new JLabel("1. b: --> 2b - (8 - b) = -2(b - 5)");
+        sQuestionContent.setBounds(30, 30, 390, 240);
+        this.add(sQuestionContent);
 
-        t3 = new JLabel("1. c: --> -5c + 2(1 - c) = -c - 2(c + 1)");
-        t3.setBounds(30, 100, 390, 240);
-        this.add(t3);
+        tQuestionContent = new JLabel("1. c: --> -5c + 2(1 - c) = -c - 2(c + 1)");
+        tQuestionContent.setBounds(30, 100, 390, 240);
+        this.add(tQuestionContent);
 
-        t4 = new JLabel("1. d: --> 2d(d - 5) - 4d(2 - d) = -3d(5 - 2d) + 9");
-        t4.setBounds(30, 180, 390, 240); 
-        this.add(t4);
+        foQuestionContent = new JLabel("1. d: --> 2d(d - 5) - 4d(2 - d) = -3d(5 - 2d) + 9");
+        foQuestionContent.setBounds(30, 180, 390, 240);
+        this.add(foQuestionContent);
 
         button = new JButton("Check");
 
@@ -90,23 +94,20 @@ public class Rownania extends JFrame implements ActionListener {
                 String result = "Zapisałeś/Zapisałaś \nrozwiazanie a: " + firstAnswer + "\nrozwiazanie b: " + secondAnswer
                         + "\nc = " + thirdAnswer + " oraz\n d = " + fourthAnswer + "\nTwoj rezultat, to ";
                 
-                if(Objects.equals(firstAnswer, "2")) { wynik += 25; }
-                if(Objects.equals(secondAnswer, "zadna z liczb")) { wynik += 25; }
-                if(Objects.equals(thirdAnswer, "1")) { wynik += 25; }
-                if(Objects.equals(fourthAnswer, "-3")) { wynik += 25; }
+                if(Objects.equals(Integer.parseInt(firstAnswer), 2)) { wynik += 25; }
+                if(Objects.equals(secondAnswer.toUpperCase(), "ZADNA Z LICZB")) { wynik += 25; }
+                if(Objects.equals(Integer.parseInt(thirdAnswer), 1)) { wynik += 25; }
+                if(Objects.equals(Integer.parseInt(fourthAnswer), -3)) { wynik += 25; }
 
                 result += wynik + "%";
 
                 JOptionPane.showMessageDialog(this, result, "INFO o rozwiazaniach rownan___",
                         JOptionPane.INFORMATION_MESSAGE);
 
-            } catch (NumberFormatException e1) {
+            } catch (NumberFormatException exception) {
                 System.err.println("Błąd odczytu");
             }
         }
     }
-
-    public static void main(String[] args) {
-        new Rownania();
-    }
+    public static void main(String[] args) { new Rownania(); }
 }
