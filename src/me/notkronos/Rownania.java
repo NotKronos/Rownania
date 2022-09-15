@@ -39,11 +39,11 @@ public class Rownania extends JFrame implements ActionListener {
         this.add(t2Label);
 
         t3 = new JLabel("1. c: --> -5c + 2(1 - c) = -c - 2(c + 1)");
-        t3.setBounds(30, 100, 390, 240); // bylo 80 na drugiej pozycji
+        t3.setBounds(30, 100, 390, 240);
         this.add(t3);
 
         t4 = new JLabel("1. d: --> 2d(d - 5) - 4d(2 - d) = -3d(5 - 2d) + 9");
-        t4.setBounds(30, 180, 390, 240); // bylo 140
+        t4.setBounds(30, 180, 390, 240); 
         this.add(t4);
 
         button = new JButton("Check");
@@ -83,14 +83,13 @@ public class Rownania extends JFrame implements ActionListener {
                 wynik = 0;
 
                 String firstAnswer = firstQuestion.getText();
-//Double a1 = new Double(something);
                 String secondAnswer = secondQuestion.getText();
-//Double b1 = new Double(firstAnswer);
                 String thirdAnswer = thirdQuestion.getText();
                 String fourthAnswer = fourthQuestion.getText();
+                
                 String result = "Zapisałeś/Zapisałaś \nrozwiazanie a: " + firstAnswer + "\nrozwiazanie b: " + secondAnswer
                         + "\nc = " + thirdAnswer + " oraz\n d = " + fourthAnswer + "\nTwoj rezultat, to ";
-//logika = algorytm
+                
                 if(Objects.equals(firstAnswer, "2")) { wynik += 25; }
                 if(Objects.equals(secondAnswer, "zadna z liczb")) { wynik += 25; }
                 if(Objects.equals(thirdAnswer, "1")) { wynik += 25; }
