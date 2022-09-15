@@ -13,7 +13,7 @@ public class Rownania extends JFrame implements ActionListener {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    static int wynik; // procenty
+    static int score; // procenty
     JButton button;
     JTextField firstQuestion, secondQuestion, thirdQuestion, fourthQuestion;
 
@@ -84,7 +84,7 @@ public class Rownania extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("cmdOK")) {
             try {
-                wynik = 0;
+                score = 0;
 
                 String firstAnswer = firstQuestion.getText();
                 String secondAnswer = secondQuestion.getText();
@@ -94,12 +94,12 @@ public class Rownania extends JFrame implements ActionListener {
                 String result = "Zapisałeś/Zapisałaś \nrozwiazanie a: " + firstAnswer + "\nrozwiazanie b: " + secondAnswer
                         + "\nc = " + thirdAnswer + " oraz\n d = " + fourthAnswer + "\nTwoj rezultat, to ";
                 
-                if(Objects.equals(Integer.parseInt(firstAnswer), 2)) { wynik += 25; }
-                if(Objects.equals(secondAnswer.toUpperCase(), "ZADNA Z LICZB")) { wynik += 25; }
-                if(Objects.equals(Integer.parseInt(thirdAnswer), 1)) { wynik += 25; }
-                if(Objects.equals(Integer.parseInt(fourthAnswer), -3)) { wynik += 25; }
+                if(Objects.equals(Integer.parseInt(firstAnswer), 2)) { score += 25; }
+                if(Objects.equals(secondAnswer.toUpperCase(), "ZADNA Z LICZB")) { score += 25; }
+                if(Objects.equals(Integer.parseInt(thirdAnswer), 1)) { score += 25; }
+                if(Objects.equals(Integer.parseInt(fourthAnswer), -3)) { score += 25; }
 
-                result += wynik + "%";
+                result += score + "%";
 
                 JOptionPane.showMessageDialog(this, result, "INFO o rozwiazaniach rownan___",
                         JOptionPane.INFORMATION_MESSAGE);
